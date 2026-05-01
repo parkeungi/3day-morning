@@ -1,0 +1,123 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 28px;
+  text-overflow: ellipsis;
+  background: var(--bg);
+}
+
+.selectWrap::after {
+  content: '▾';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.activeNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text);
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  border-radius: var(--radius);
+  padding: 6px 10px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
+}
+
+.since {
+  color: var(--text-faint);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  margin-left: 2px;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 4px 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.login,
+.logout {
+  flex: 1;
+  font-weight: 600;
+  padding: 9px 12px;
+  font-size: 12px;
+}
+
+.login {
+  background: rgba(94, 170, 255, 0.14);
+  border-color: rgba(94, 170, 255, 0.55);
+  color: var(--info);
+}
+.login:hover:not(:disabled) {
+  background: rgba(94, 170, 255, 0.24);
+}
+
+.logout {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+.logout:hover:not(:disabled) {
+  color: var(--danger);
+  border-color: rgba(232, 69, 69, 0.5);
+  background: rgba(232, 69, 69, 0.08);
+}
+
+.login:disabled,
+.logout:disabled {
+  opacity: 0.55;
+}

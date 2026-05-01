@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 4px 4px 4px 10px;
+}
+
+.timestamp {
+  color: var(--text-faint);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 8px 4px;
+  min-width: 0;
+}
+.input:focus {
+  border: none;
+  outline: none;
+}
+
+.submit {
+  padding: 6px 12px;
+  font-size: 12px;
+  background: rgba(94, 170, 255, 0.14);
+  border-color: rgba(94, 170, 255, 0.5);
+  color: var(--info);
+}
+.submit:hover:not(:disabled) {
+  background: rgba(94, 170, 255, 0.22);
+}

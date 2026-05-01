@@ -1,0 +1,60 @@
+.form {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+  padding: 8px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.form > * {
+  min-width: 0;
+}
+
+.callsign {
+  flex: 1.6;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.type {
+  flex: 0.9;
+}
+.time {
+  flex: 1.4;
+}
+.prio {
+  flex: 0.8;
+}
+
+.prio[data-prio='caution'] {
+  color: var(--warn);
+  border-color: rgba(245, 165, 36, 0.5);
+}
+.prio[data-prio='emergency'] {
+  color: var(--danger);
+  border-color: rgba(232, 69, 69, 0.5);
+}
+
+.add {
+  background: rgba(94, 170, 255, 0.14);
+  border-color: rgba(94, 170, 255, 0.5);
+  color: var(--info);
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 16px;
+}
+.add:hover:not(:disabled) {
+  background: rgba(94, 170, 255, 0.22);
+}
+
+@media (max-width: 1100px) {
+  .form {
+    flex-wrap: wrap;
+  }
+  .callsign {
+    flex: 1 1 100%;
+  }
+}

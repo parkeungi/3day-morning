@@ -1,0 +1,188 @@
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--pending);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'head head'
+    'body actions';
+  gap: 8px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.status_pending {
+  border-left-color: var(--pending);
+}
+.status_in_progress {
+  border-left-color: var(--in-progress);
+  background: linear-gradient(
+    90deg,
+    rgba(245, 165, 36, 0.08),
+    var(--bg-elev) 30%
+  );
+}
+.status_done {
+  border-left-color: var(--done);
+  opacity: 0.65;
+}
+.status_done .callsign {
+  text-decoration: line-through;
+}
+
+.prio_caution {
+  border-color: rgba(245, 165, 36, 0.5);
+}
+.prio_emergency {
+  border-color: rgba(232, 69, 69, 0.6);
+  background: linear-gradient(90deg, rgba(232, 69, 69, 0.1), var(--bg-elev) 40%);
+}
+
+.urgency_warn {
+  border-color: rgba(245, 165, 36, 0.6);
+}
+.urgency_critical {
+  border-color: var(--danger);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.urgency_over {
+  border-color: var(--danger);
+  background: rgba(232, 69, 69, 0.08);
+  animation: pulseFast 0.9s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 69, 69, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(232, 69, 69, 0.25); }
+}
+@keyframes pulseFast {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 69, 69, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(232, 69, 69, 0.35); }
+}
+
+.head {
+  grid-area: head;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.callsign {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+}
+
+.type {
+  color: var(--text-dim);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.badge_emergency,
+.badge_caution {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.badge_emergency {
+  background: var(--danger);
+  color: white;
+}
+.badge_caution {
+  background: var(--warn);
+  color: #1a1a1a;
+}
+
+.body {
+  grid-area: body;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.label {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
+.time {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.remaining {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.urgency_warn .remaining {
+  color: var(--warn);
+}
+.urgency_critical .remaining,
+.urgency_over .remaining {
+  color: var(--danger);
+}
+
+.statusPill {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.status_in_progress .statusPill {
+  color: var(--warn);
+  border-color: rgba(245, 165, 36, 0.5);
+}
+.status_done .statusPill {
+  color: var(--accent);
+  border-color: rgba(74, 222, 128, 0.5);
+}
+
+.actions {
+  grid-area: actions;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.advance {
+  background: rgba(94, 170, 255, 0.12);
+  border-color: rgba(94, 170, 255, 0.5);
+  color: var(--info);
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.advance:hover {
+  background: rgba(94, 170, 255, 0.22);
+}
+
+.delete {
+  background: transparent;
+  color: var(--text-faint);
+  padding: 6px 8px;
+}
+.delete:hover {
+  color: var(--danger);
+  border-color: rgba(232, 69, 69, 0.4);
+}

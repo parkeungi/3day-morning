@@ -1,0 +1,31 @@
+.wrap {
+  display: inline-flex;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+}
+
+.opt {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 6px 12px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.opt:hover {
+  color: var(--text);
+  background: transparent;
+  border: none;
+}
+
+.active,
+.active:hover {
+  background: var(--bg-elev-2);
+  color: var(--text);
+}

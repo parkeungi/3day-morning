@@ -1,0 +1,36 @@
+.wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.primary,
+.danger,
+.ghost {
+  flex: 1;
+  padding: 10px 14px;
+  font-weight: 600;
+}
+
+.primary {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.5);
+  color: var(--accent);
+}
+.primary:hover {
+  background: rgba(74, 222, 128, 0.2);
+}
+
+.danger {
+  background: rgba(232, 69, 69, 0.12);
+  border-color: rgba(232, 69, 69, 0.5);
+  color: var(--danger);
+}
+.danger:hover {
+  background: rgba(232, 69, 69, 0.2);
+}
+
+.ghost {
+  flex: 0 0 auto;
+  background: transparent;
+  color: var(--text-dim);
+}
